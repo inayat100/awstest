@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Index{% endblock title %}
+
+
+
+{% block body %}
+{% for o in ord %}
+<div class="row g-0 mt-3 bg-white">
+ <div class="col-5 my-auto">
+  <img src="{{o.product.pimage.url}}" class="show-img" alt="...">
+ </div>
+ <div class="col-7">
+  <div class="card-body">
+   <h5 class="card-title">{{o.product.pname}}</h5>
+   <h2 class="m-2 bg-price"> <span><i class="fa-solid fa-rupee-sign"></i></span> <strong
+     id="price">{{o.product.pprice}}</strong>
+   </h2>
+   <p class="card-text" id="tt">{{o.product.ptitle}}</p>
+   <p>order date : {{o.datetime}}</p>
+   <h2>status : {{o.order_status}}</h2>
+     {% if o.order_status == "confirmed" %}
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped " role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+  {% elif o.order_status == "shipped" %}
+  <div class="progress">
+   <div class="progress-bar progress-bar-striped sky-blue" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+ </div>
+
+ {% elif o.order_status == "Delivery" %}
+ <div class="progress">
+  <div class="progress-bar progress-bar-striped yellow" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+
+{% elif o.order_status == "Delivered" %}
+<div class="progress">
+ <div class="progress-bar progress-bar-striped green" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+  {% else %}
+  <div class="progress">
+   <div class="progress-bar progress-bar-striped red" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+{% endif %}
+
+  </div>
+ </div>
+
+</div>
+{%endfor%}
+{% endblock body %}

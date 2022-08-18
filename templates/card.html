@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Index{% endblock title %}
+
+
+
+{% block body %}
+
+{%if items %}
+
+{%for i in items %}
+
+<div class="row g-0 mt-3 bg-white">
+
+  <div class="col-5 my-auto">
+    <img src="{{i.prd_name.pimage.url}}" class="show-img" alt="...">
+  </div>
+
+  <div class="col-7">
+    <div class="card-body">
+      <h5 class="card-title">{{i.prd_name.pname}} cont </h5>
+      <div class="baap">
+      <a class="add-card" pid="{{i.id}}"><span class="cbtn"><i class="fa-solid fa-plus"></i></span></a>
+      <b qty="qty"> {{i.qty}}</b>
+      <a class="remove-card" pid="{{i.id}}"><span class="cbtn"><i class="fa-solid fa-minus"></i></span></a>
+      
+    </div>
+
+      <h2 class="m-2 bg-price"> <span><i class="fa-solid fa-rupee-sign"></i></span> <strong id="price">{{i.prd_name.pprice}}</strong>
+      </h2>
+
+
+      <p class="card-text" id="tt">{{i.prd_name.ptitle}}</p>
+
+      <form action="{% url 'card' %}" method="post" class="d-inline-block">
+        {% csrf_token %}
+        <input name="remove" type="hidden" value="{{i.id}}">
+        <button class="my-btn mt-3" style="color: red;" type="submit" > Remove <span><i class="fa-solid fa-trash"></i></span></button>
+      </form>
+      <a href="/full/?title={{i.prd_name.ptitle}}" class="back mt-3">go to<span><i class="fa-solid fa-arrow-rotate-left"></i></span></a>
+
+      
+    </div>
+  </div>
+
+</div>
+
+{%endfor%}
+
+<div class="row
+ g-0 mt-3 bg-white px-10">
+
+  <div class="col-12">
+    <h2 class="mt-5" >Total amount</h2>
+    <h2 class="my-5 d-inline-block" id="total">{{total}}</h2>
+    <a href="{% url 'all_order' %}" class="my-btn mt-3 ml-3" type="submit" >place Order</a>
+  </div>
+
+</div>
+
+{% else %}
+
+<h2 class="text-center my-3">cart is empty now </h2>
+<img class="m-auto w-25 h-25" src="{% static 'image/cart.jpg' %}" alt="">
+
+{% endif %}
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+$('.add-card').click(function(){
+
+  var id = $(this).attr("pid").toString();
+  var u = this.parentNode.children[1]
+  var am = document.getElementById('total');
+  var cd = document.getElementById('cd');
+  $.ajax(
+            {
+                type:'GET',
+                url:"{% url 'add_cart' %}",
+                data:{
+                    add:id,
+                },
+                success: function(data)
+              {
+                u.innerText= data.qty;
+                am.innerText = data.total;
+                
+              }
+         })
+
+});
+
+$('.remove-card').click(function(){
+
+  var id = $(this).attr("pid").toString();
+  var u = this.parentNode.children[1]
+  var am = document.getElementById('total');
+  let ck = parseInt(u.innerText);
+  if(ck > 1){
+  $.ajax(
+            {
+                type:'GET',
+                url:"{% url 'remove_cart' %}",
+                data:{
+                    remove:id,
+                },
+                success: function(data)
+              {
+                u.innerText= data.qty;
+                am.innerText = data.total;
+                  
+              }
+         })
+        }
+      else{
+        alert("sorry your quantity is 1 it's last ");
+      }   
+
+});
+
+</script>
+{% endblock body %}

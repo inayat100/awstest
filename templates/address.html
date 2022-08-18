@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Index{% endblock title %}
+
+
+
+{% block body %}
+
+<div class="cotainer mt-2">
+  <form action="" method="post">
+    {% csrf_token %}
+    {%for a in add %}
+
+    <div class="col-md-6 bg-white m-auto p-4">
+      {% if a.primary%}
+      <input type="radio" name="ads" value="{{a.id}}" id="{{a.id}}" checked>
+      <label for="{{a.id}}" class="fh2">
+        <h2 class="d-inline-block mx-2"></h2>{{a.name}}</h2>
+      </label>
+      {%else%}
+      <input type="radio" name="ads" value="{{a.id}}" id="{{a.id}}">
+      <label for="{{a.id}}" class="fh2">
+        <h2 class="d-inline-block mx-2"></h2>{{a.name}}</h2>
+      </label>
+      {%endif%}
+
+      <h2>{{a.phone}}</h2>
+      <b>{{a.city}}</b>
+      <p>{{a.house_no}},{{a.pin}}</p>
+
+      {% if dis %}
+      <a class="nav-link disabled mx-1" href="#" tabindex="-1" aria-disabled="true"> Edit <span><i class="fa-solid fa-pen-to-square"></i></span>
+      </a>
+      <a class="nav-link disabled mx-1" href="#" tabindex="-1" aria-disabled="true"> Delete <span><i class="fa-solid fa-trash"></i></span></a>
+      {% else %}
+      <a href="{% url 'update_address' %}?update={{a.id}}" class="mx-1"> Edit <span><i class="fa-solid fa-pen-to-square"></i></span>
+      </a>
+      <a href="{% url 'delet_address' a.id %}" class="mx-1"> Delete <span><i class="fa-solid fa-trash"></i></span></a>
+      {% endif %}
+      <hr class="mt-2">
+
+
+
+
+    </div>
+
+    {%endfor%}
+    <div class="col-md-6 bg-white m-auto p-4">
+      <button type="submit" class="razorpay-payment-button"> make primary</button>
+      {% if dis %}
+      <a class=" sky-blue razorpay-payment-button " href="{% url 'my_address' %}">
+      befor buy  add or edit address
+    </a>
+      {% else %}
+      <a class=" sky-blue razorpay-payment-button " data-bs-toggle="collapse" href="#collapseExample" role="button"
+        aria-expanded="false" aria-controls="collapseExample">
+        add more Address
+      </a>
+      {% endif %}
+    </div>
+  </form>
+
+  <div class="col-md-6 bg-white m-auto p-4">
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      <form action="{% url 'update_address' %}" method="post" class="signup">
+        {% csrf_token %}
+   
+        <div class="row m-auto">
+          <div class="mb-3 col-md-6">
+   
+            <label for="username" class="form-label">Name</label>
+            <input type="text" class="form-control" id="username" placeholder="enter name" name="name" required>
+   
+          </div>
+   
+          <div class="mb-3 col-md-6">
+   
+            <label for="pass2" class="form-label">City Name</label>
+            <input type="text" class="form-control" id="pass2" name="city" placeholder="enter city" required>
+   
+          </div>
+        </div>
+        
+        <div class="row m-auto">
+          <div class="mb-3 col-md-6">
+   
+            <label for="username" class="form-label">Number</label>
+            <input type="text" class="form-control" id="username" name="number" placeholder="enter number" required>
+   
+          </div>
+          <div class="mb-3 col-md-6">
+   
+            <label for="pass2" class="form-label">pin</label>
+            <input type="text" class="form-control" id="pass2"  name="pin" placeholder="enter pin" required>
+   
+          </div>
+   
+   
+        </div>
+        <div class="row">
+        <div class="mb-3">
+          <label for="pass2" class="form-label">house no road</label>
+          <input type="text" class="form-control" id="pass2"name="home" placeholder="saidpur near sbi bank" required>
+   
+        </div>
+      </div>
+
+        <button class="my-btn" type="submit">Add address</button>
+      </form>
+   
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+{% endblock body %}

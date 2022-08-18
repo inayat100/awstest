@@ -1,0 +1,253 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Index{% endblock title %}
+
+
+
+{% block body %}
+
+<!-- search engn -->
+<div class="container s-div position-relative">
+    <form action="{% url 'search' %}" method="get" class="d-flex my-2">
+        <input class="form-control search p-5" type="search" placeholder="Search Here" aria-label="Search" name="search">
+        <button class="btn position-absolute" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+</div>
+
+<!-- thid header slider -->
+
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner ">
+        <div class="carousel-item active">
+            <img src="{% static 'image/h1.jpg' %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'image/h2.jpg' %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'image/h3.jpg' %}" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!-- this is heading 1 -->
+<h2 class="text-center m-3 ">trending shoes belly</h2>
+<hr class="under">
+
+<!-- this is producat slider -->
+<div class="swiper mySwiper bg-white mt-3">
+    <h2 class="text-center m-3 all">see all</h2>
+    <div class="swiper-wrapper">
+        {%for p in products%}
+
+        <div class="swiper-slide card" style="width: 18rem;">
+            <img src="{{p.pimage.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <P>{{p.ptitle}}</P>
+                <a href="/full/?title={{p.ptitle}}" >show more</a>
+
+                
+            </div>
+        </div>
+{%endfor%}
+       
+
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+</div>
+
+
+<!-- this is heading 2 -->
+
+<h2 class="text-center m-3"><a href="#">Fashion lediies clothing</a></h3>
+    <hr class="under">
+
+    <!-- this is cards here -->
+    <div class="container cbg mt-3">
+        <h2 class="text-center mt-3 mx-5 all">see all</h2><br>
+
+        <div style="margin-top: 40px;">
+
+            <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                <div class="group relative">
+                    <div
+                        class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="{% static 'image/c1.jpg' %}" alt="Front of men&#039;s Basic Tee in black."
+                            class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-700">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Basic Tee
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-500">Black</p>
+                        </div>
+                        <p class="text-sm font-medium text-gray-900">$35</p>
+                    </div>
+                </div>
+
+                <div class="group relative">
+                    <div
+                        class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="{% static 'image/c2.jpg' %}" alt="Front of men&#039;s Basic Tee in black."
+                            class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-700">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Basic Tee
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-500">Black</p>
+                        </div>
+                        <p class="text-sm font-medium text-gray-900">$35</p>
+                    </div>
+                </div>
+
+                <div class="group relative">
+                    <div
+                        class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="{% static 'image/c3.jpg' %}" alt="Front of men&#039;s Basic Tee in black."
+                            class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-700">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Basic Tee
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-500">Black</p>
+                        </div>
+                        <p class="text-sm font-medium text-gray-900">$35</p>
+                    </div>
+                </div>
+
+                <div class="group relative">
+                    <div
+                        class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="{% static 'image/c4.jpg' %}" alt="Front of men&#039;s Basic Tee in black."
+                            class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-700">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Basic Tee
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-500">Black</p>
+                        </div>
+                        <p class="text-sm font-medium text-gray-900">$35</p>
+                    </div>
+                </div>
+
+                <!-- More products... -->
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- this is heading 3 -->
+    <h2 class="text-center m-3"><a href="#">Best offers here</a></h3>
+        <hr class="under">
+
+        <!-- this is offer slidrer -->
+
+        <div id="carouselExampleControls" class="carousel slide mt-3" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'image/ban1.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'image/ban2.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'image/ban3.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <h2 class="text-center m-3"><a href="#">Fashion boys clothing</a></h3>
+            <hr class="under">
+            <!-- this is fotter producat slider -->
+
+            <div class="swiper mySwiper bg-white mt-3">
+                <h2 class="text-center m-3 all">see all</h2>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide card" style="width: 18rem;">
+                        <img src="{% static 'image/c1.jpg' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title 1</h5>
+
+                            <!-- <a href="#" class="btn-sm btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide card" style="width: 18rem;">
+                        <img src="{% static 'image/c2.jpg' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title 2</h5>
+                            <!-- <a href="#" class="btn-sm btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide card" style="width: 18rem;">
+                        <img src="{% static 'image/c3.jpg' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title 3</h5>
+                            <!-- <a href="#" class="btn-sm btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide card" style="width: 18rem;">
+                        <img src="{% static 'image/c4.jpg' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title 4</h5>
+                            <!-- <a href="#" class="btn-sm btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide card" style="width: 18rem;">
+                        <img src="{% static 'image/c2.jpg' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title 5</h5>
+                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+
+            {% endblock body %}

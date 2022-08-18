@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Index{% endblock title %}
+
+
+
+{% block body %}
+
+
+
+<form method="post" action="{% url 'product_buy' %}" class="text-center">
+    
+    <div class="card m-auto" style="width: 18rem;">
+        <img src="{{pk.pimage.url}}" class="card-img-top" alt="...">
+        <div class="card-body text-start">
+          <h5 class="card-title text-start">{{pk.pname}}</h5>
+          <p class="card-text text-start">{{pk.ptitle}}</p>
+          <p class="btn btn-primary text-start">{{pk.pprice}}</p>
+        </div>
+      </div>
+      <div class="container mt-2">
+        <h2>shpping Address</h2>
+
+
+      
+        <div class="col-md-6 bg-white m-auto p-4 mt-3">
+          <h2>Name - {{ad.name}}</h2>
+          <h2>Number - {{ad.phone}}</h2>
+          <b>City - {{ad.city}}</b>
+          <p>Home place - {{ad.house_no}},{{ad.pin}}</p>
+          <a href="{% url 'my_address' %}?one={{pk.id}}">click to change Address</a>
+        </div>
+      </div>
+<script 
+    src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key ="rzp_test_7mPyjnwM8ZduxW"
+    data-amount="{{payment.amount}}"
+    data-currency="INR"
+    data-order_id="{{payment.id}}"
+    data-buttontext="Go To payment"
+    data-name="inayat"
+    data-description="Test Transaction"
+    data-image="{% static 'image/logo/pm.jpeg' %}"
+    data-prefill.name="INAYAT RASOOL"
+    data-prefill.email="inayat@gmail.com"
+    data-prefill.contact="8171415434"
+    data-theme.color="#75ff8c"
+></script>
+
+<input type="hidden" value="{{pk.id}}"  custom="Hidden Element" name="id">
+<input type="hidden" value="{{request.user.id}}"  custom="Hidden Element" name="user">
+<input type="hidden" value="{{ad.id}}"  custom="Hidden Element" name="add">
+    </form>
+
+
+
+
+
+
+{% endblock body %}

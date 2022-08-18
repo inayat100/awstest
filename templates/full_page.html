@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}all about {% endblock title %}
+
+
+
+{% block body %}
+
+
+<div class="row bg-white">
+
+    <div class="col-md-6 p-10 bg-white">
+        <img src="{{product.pimage.url}}" class="full-pdu" alt="...">
+    </div>
+
+    <div class="col-md-6 pt-md-20 pl-5">
+        <h2 class="m-2">{{product.ptitle}}</h2>
+        <h2 class="m-2 bg-price"> <span><i class="fa-solid fa-rupee-sign"></i></span>{{product.pprice}}</h2>
+        <h4 class="m-2 "><s> <span><i class="fa-solid fa-rupee-sign"></i></span> 250.00</s></h4>
+        <h4>Free delivery</h4>
+        <form action="{% url 'card' %}" method="post" class="d-inline-block">
+            {% csrf_token %}
+            <input type="hidden" value="{{product.id}}" name="card">
+            {% if add %}
+         <a class="my-btn mt-3" href="{% url 'card' %}"> <span><i class="fa-solid fa-cart-plus"></i></span> Go To Card</a>
+         {% else %}
+        <button class="my-btn mt-3" type="submit" > <span><i class="fa-solid fa-cart-plus"></i></span> add to card</button>
+        {% endif %}
+</form>
+        <a href="{% url 'buy' product.id %}" class="my-btn mt-3"> <span><i class="fa-solid fa-bag-shopping"></i></span> buy now</a>
+
+        <h2 class="mt-5"> producat description :</h2>
+        <p class="m-5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur velit, porro inventore aspernatur officia
+            harum commodi et officiis nisi quibusdam dolorem sapiente dolore perspiciatis blanditiis, amet nobis atque
+            eum omnis!
+            Nesciunt eveniet minus natus rem quae dicta sed quidem accusantium recusandae dolores, id et enim, ipsum
+            temporibus voluptates cupiditate optio possimus neque, quia reprehenderit pariatur. Necessitatibus
+            blanditiis vitae similique nam.
+            Est dolore alias voluptates distinctio optio officiis neque expedita cum repudiandae, iusto cumque ab eum
+            ipsam amet perferendis, adipisci omnis dolorem quo ut iste aliquam sint ratione! Voluptates, deserunt
+            fugiat.
+            Reiciendis delectus sed exercitationem assumenda recusandae consequatur quo nemo nesciunt possimus
+            repellendus enim, obcaecati illum ratione dolore voluptas optio voluptatem blanditiis a modi magnam. At cum
+            doloremque explicabo dolor quia.
+            Ullam ea voluptatem iure distinctio libero hic iste, excepturi sequi voluptates quae eum nisi facilis eos
+            rem quod ipsa eaque blanditiis nemo tempore cupiditate at? Deserunt ipsam obcaecati necessitatibus error.
+        </p>
+    </div>
+</div>
+
+<h2 class="text-center m-3 ">Similar Products</h2>
+<hr class="under">
+
+<div class="swiper mySwiper bg-white mt-3">
+    <h2 class="text-center m-3 all">see all</h2>
+    <div class="swiper-wrapper">
+        {%for s in same %}
+        <div class="swiper-slide card" style="width: 18rem;">
+            <a href="/full/?title={{s.ptitle}}">
+                <img src="{{s.pimage.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <H2>{{s.ptitle}}</H2>
+            </a>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+
+<div class="swiper-button-next"></div>
+<div class="swiper-button-prev"></div>
+<div class="swiper-pagination"></div>
+</div>
+
+
+{% endblock body %}

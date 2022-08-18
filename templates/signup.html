@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Index{% endblock title %}
+
+
+
+{% block body %}
+
+<div class="container m-auto">
+
+<div class="su-bg">
+ <h2 class="text-center m-3"> <span><i
+  class="fa-solid fa-user-plus"></i></span> Registration Form</h3>
+  <hr class="under mb-3">
+
+ <form action="" method="post" class="signup">
+  {% csrf_token %}
+  <div class="col-md-6 m-auto">
+
+   <div class="mb-3">
+    <label for="username" class="form-label"><span><i class="fa-solid fa-user"></i></span>  Your user name</label>
+     <input type="text" class="form-control" id="username" placeholder="inayat01" name="username" >
+   </div>
+
+   <div class="row">
+
+    <div class="mb-3 col-6">
+     <label for="fname" class="form-label"><i class="fa-solid fa-file-signature"></i> Your first name</label>
+     <input type="text" class="form-control" id="fname" placeholder="inayat" name="fname">
+    </div>
+
+    <div class="mb-3 col-6">
+     <label for="lname" class="form-label"><i class="fa-solid fa-file-signature"></i> Your last name</label>
+     <input type="text" class="form-control" id="lname" placeholder="rasool" name="lname">
+    </div>
+
+   </div>
+
+   <div class="mb-3">
+    <label for="email" class="form-label"><i class="fa-solid fa-envelope-open"></i> Your user email</label>
+    <input type="email" class="form-control" id="email" placeholder="inayat@gmail.com" name="email">
+   </div>
+
+
+   <div class="row">
+
+    <div class="mb-3 col-6">
+     <label for="pass1" class="form-label"><i class="fa-solid fa-key"></i> Your password</label>
+     <input type="password" class="form-control" id="pass1" placeholder="make a password" name="pass1">
+    </div>
+
+    <div class="mb-3 col-6">
+     <label for="pass2" class="form-label"><i class="fa-solid fa-key"></i> confirm password</label>
+     <input type="password" class="form-control" id="pass2" placeholder="confirm password here" name="pass2">
+    </div>
+
+   </div>
+   <button class="my-btn" type="submit">Sign up</button> <a class="my-btn" href="{% url 'signin' %}">Sign In</a>
+  </div>
+ </form>
+</div>
+</div>
+
+{% endblock body %}

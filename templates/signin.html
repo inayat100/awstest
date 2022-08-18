@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Index{% endblock title %}
+
+
+
+{% block body %}
+<div class="container m-auto">
+
+ <div class="su-bg">
+  <h2 class="text-center m-3"> <span><i class="fa-solid fa-right-to-bracket"></i></span> Loging Form</h3>
+   <hr class="under">
+  <form action="" method="post" class="signup">
+    {% csrf_token %} 
+   <div class="col-md-6 m-auto">
+ 
+    <div class="mb-3">
+     <label for="username" class="form-label"><span><i class="fa-solid fa-user"></i></span>  Your user name</label>
+      <input type="text" class="form-control" id="username" placeholder="inayat01" name="username">
+    </div>
+ 
+ 
+     
+ 
+     <div class="mb-3 ">
+      <label for="pass2" class="form-label"><i class="fa-solid fa-key"></i> confirm password</label>
+      <input type="password" class="form-control" id="pass2" placeholder="confirm password here" name="pass1">
+     </div>
+
+    <button class="my-btn" type="submit">Sign In</button> <a class="my-btn" href="{% url 'signup' %}">Sign Up</a>
+   </div>
+  </form>
+ </div>
+ </div>
+
+{% endblock body %}

@@ -1,0 +1,61 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Index{% endblock title %}
+
+
+
+{% block body %}
+<h2>update address {{id}}</h2>
+
+
+   <form action="{% url 'update_address'  %}" method="post" class="signup">
+     {% csrf_token %}
+
+     <div class="row m-auto">
+       <div class="mb-3 col-md-6">
+
+         <label for="username" class="form-label">Name</label>
+         <input type="text" class="form-control" id="username{{a.id}}" value="{{a.name}}"  name="name" required>
+
+       </div>
+
+       <div class="mb-3 col-md-6">
+
+         <label for="pass2" class="form-label">City Name</label>
+         <input type="text" class="form-control" id="pass2{{a.id}}" value="{{a.city}}" name="city" required>
+
+       </div>
+     </div>
+     
+     <div class="row m-auto">
+       <div class="mb-3 col-md-6">
+
+         <label for="username" class="form-label">Number</label>
+         <input type="text" class="form-control" value="{{a.phone}}" id="username{{a.id}}" name="number" required>
+
+       </div>
+       <div class="mb-3 col-md-6">
+
+         <label for="pass2" class="form-label">pin</label>
+         <input type="text" class="form-control" id="pass2{{a.id}}" value="{{a.pin}}"  name="pin" required>
+
+       </div>
+
+
+     </div>
+     <div class="row">
+     <div class="mb-3">
+       <label for="pass2" class="form-label">house no road</label>
+       <input type="text" class="form-control" id="pass2{{a.id}}" value="{{a.house_no}}"  name="home" required>
+
+     </div>
+   </div>
+   <input type="hidden" value="{{a.id}}" name="id">
+     <button class="my-btn" type="submit">Change address</button>
+   </form>
+
+
+
+
+{% endblock body %}

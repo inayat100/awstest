@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Index{% endblock title %}
+
+
+
+{% block body %}
+
+<div class="d-flex flex-wrap justify-content-evenly">
+
+
+
+{% for p in allp %}
+
+<div class="card mt-3"  >
+ <img src="{{p.pimage.url}}" class="card-img-top" alt="...">
+ <div class="card-body">
+   <p class="card-text">{{p.ptitle|truncatechars:50}}</p>
+ </div>
+</div>
+
+{% endfor %}
+
+
+ </div>
+
+
+
+{% endblock body %}

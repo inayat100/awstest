@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/unpkg.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/tailwind.css' %}">
+  <link rel="stylesheet" href="{% static 'css/mycss.css' %}">
+  <script src="https://kit.fontawesome.com/2504a79265.js" crossorigin="anonymous"></script>
+  <title>{% block title %} {% endblock title %}</title>
+
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+.mgreen{
+  background-color: rgb(138, 240, 137);
+}
+.mred{
+  background-color: rgb(243, 137, 137);
+}
+.myellow{
+  background-color: rgb(238, 238, 134);
+}
+
+
+.fh2{
+  font-family: cursive;
+  font-weight: 500;
+  font-size: 25px;
+}
+    h2 {
+      font-family: cursive;
+      font-weight: 500;
+      font-size: 25px;
+    }
+
+    .under {
+      width: 250px;
+      margin: auto;
+      background-color: blue;
+    }
+
+    .main {
+      display: flex;
+
+    }
+
+    .f-icon {
+
+      width: 30px;
+      margin: 5px;
+    }
+
+    .all {
+      float: right;
+      border-bottom: solid blue;
+    }
+
+    .cbg {
+      background-color: #d5d5d5;
+
+    }
+
+    .search {
+      padding: 3px 30px;
+      border-radius: 25px;
+    }
+
+    .btn {
+      right: 25px;
+    }
+
+    ::placeholder {
+      text-align: center;
+      font-family: cursive;
+    }
+
+    .ser {
+      width: 500px;
+    }
+
+    .s-div {
+      width: 50%;
+    }
+
+    .my-btn {
+      background-color: black;
+      color: white;
+      font-family: cursive;
+      font-size: 25px;
+      border-radius: 15px;
+      padding: 5px;
+    }
+
+    .back {
+
+      font-family: cursive;
+      font-size: 25px;
+      border-radius: 15px;
+      padding: 5px;
+    }
+
+    .signup input {
+      border-radius: 10px;
+    }
+
+    .su-bg {
+      border-radius: 50px;
+      background-color: whitesmoke;
+      padding: 15px;
+      margin-top: 10px;
+    }
+
+    .full-pdu {
+      width: 100%;
+      height: auto;
+    }
+
+    .bg-price {
+      color: green;
+      font-weight: 900;
+    }
+
+    .show-img {
+      height: 200px;
+      width: 300px;
+      margin: auto;
+
+    }
+
+    .cbtn {
+      background-color: black;
+      color: white;
+      padding: 2px;
+      border-radius: 5px;
+    }
+
+    .baap a {
+      cursor: pointer;
+    }
+.razorpay-payment-button{
+  background-color: rgb(89, 205, 87);
+  color: rgb(69, 68, 68);
+  padding: 2px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: cursive;
+  width: 250px;
+  margin-top: 5px;
+
+}
+    @media screen and (max-width: 630px) {
+      .main {
+        display: block;
+      }
+
+      .show-img {
+        height: 160px;
+        width: 250px;
+      }
+    }
+    .green{
+      background-color: green;
+    }
+    .yellow{
+      background-color: #ffc107;
+    }
+    .sky-blue{
+      background-color: #0dcaf0;
+    }
+    .red{
+      background-color: red;
+    }
+
+    #cont {
+      margin: 2px;
+      background: black;
+      color: white;
+      padding: 2px;
+      border-radius: 3px;
+    }
+    .card{
+      width: 12rem;
+    }
+
+    @media screen and (max-width: 850px) {
+      .s-div {
+        width: 90%;
+      }
+    }
+
+    @media screen and (max-width: 850px) {
+      .s-div {
+        width: 90%;
+      }
+    }
+
+    @media screen and (max-width: 950px) {
+      .show-img {
+        height: 100px;
+        width: 180px;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      .card {
+
+        width: 50%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar  navbar-expand-lg navbar-light bg-my mr-n10">
+    <div class="container-fluid">
+      <a class="navbar-brand " href="/"> <img src="{% static 'image/logo/small1.png' %}" alt="" id="logo"> </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <samp><i class="fa-solid fa-bolt-lightning"></i></samp> Electronics
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#">Audio</a></li>
+              <li><a class="dropdown-item" href="#">Mobiles</a></li>
+              <li><a class="dropdown-item" href="#">Laptops</a></li>
+              <li><a class="dropdown-item" href="#">Camera</a></li>
+              <li><a class="dropdown-item" href="#">Mobile Accessories</a></li>
+              <li><a class="dropdown-item" href="#">Smart Watches</a></li>
+              <li><a class="dropdown-item" href="#">Powerbank</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <span><i class="fa-solid fa-child"></i></span> Men
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#">Footwear</a></li>
+              <li><a class="dropdown-item" href="#">Top wear</a></li>
+              <li><a class="dropdown-item" href="#">Bottom wear</a></li>
+              <li><a class="dropdown-item" href="#">Winter Wear</a></li>
+              <li><a class="dropdown-item" href="#">Watch</a></li>
+
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <span><i class="fa-solid fa-child-dress"></i></span> Women
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#">Footwear</a></li>
+              <li><a class="dropdown-item" href="#">Jewellery</a></li>
+              <li><a class="dropdown-item" href="#">Watches</a></li>
+              <li><a class="dropdown-item" href="#">Ethnic Wear</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <span><i class="fa-solid fa-baseball"></i></span> Sports, Books & More
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#">Football</a></li>
+              <li><a class="dropdown-item" href="#">Badminton</a></li>
+              <li><a class="dropdown-item" href="#">Cricket</a></li>
+              <li><a class="dropdown-item" href="#">Exam Preparation</a></li>
+
+
+            </ul>
+          </li>
+
+        </ul>
+
+        <div class="d-flex">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" id="cd" aria-current="page" href="{% url 'card' %}"> <span><i
+                    class="fa-solid fa-cart-plus"></i></span> Cards <span id="cont">{{cd}}</span></a>
+            </li>
+            {% if user.is_authenticated %}
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'logout' %}"> <span><i
+                    class="fa-solid fa-power-off"></i></span> Logout</a>
+            </li>
+
+            
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false"> <span><i
+                    class="fa-solid fa-clipboard-user"></i></span> {{request.user}}</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="{% url 'order_views' %}">My orders</a></li>
+                      <li><a class="dropdown-item" href="{% url 'my_address' %}">My Address</a></li>
+                    </ul>
+                  </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'signup' %}"> <span><i
+                    class="fa-solid fa-user-plus"></i></span> Sing Up</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'signin' %}"> <span><i
+                    class="fa-solid fa-right-to-bracket"></i></span> Sing In</a>
+            </li>
+            {% endif %}
+          </ul>
+
+        </div>
+
+
+
+      </div>
+    </div>
+  </nav>
+
+
+  {% for m in messages %}
+  <div class="alert alert {{m.tags}} alert-dismissible fade show" role="alert">
+    {{m}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+  {% block body %}
+
+  {% endblock body %}
+
+  <!-- this is footer -->
+  <footer class="bg-light text-center text-lg-start mt-5">
+    <!-- Copyright -->
+    <div class="text-center p-3 main row justify-center" style="background-color: rgba(0, 0, 0, 0.2);">
+
+      <div class="chl col-sm-4">
+        <ul class="d-flex justify-center">
+          <li><a href="#"><img src="{% static 'image/icon/facebook.svg' %}" alt="" class="f-icon"></a></li>
+          <li><a href="#"><img src="{% static 'image/icon/instagram.svg' %}" alt="" class="f-icon"></a></li>
+          <li><a href="#"><img src="{% static 'image/icon/whatsapp.svg' %}" alt="" class="f-icon"></a></li>
+          <li><a href="#"><img src="{% static 'image/icon/gmail.svg' %}" alt="" class="f-icon"></a></li>
+          <li><a href="#"><img src="{% static 'image/icon/location.svg' %}" alt="" class="f-icon"></a></li>
+          <li><a href="#"><img src="{% static 'image/icon/call.svg' %}" alt="" class="f-icon"></a></li>
+        </ul>
+      </div>
+
+      <div class="chl col-sm-4">
+        <img class="p-2 m-auto" src="{% static 'image/icon/payment.svg' %}" alt="">
+      </div>
+
+      <div class="chl col-sm-4">
+        © 2020 Copyright: <a class="text-dark p-2" href="https://mdbootstrap.com/"><samp style="color: red;">
+            E-shop</samp>store.com</a>
+      </div>
+
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+
+</body>
+
+<script src="{% static 'js/bootstrap.js' %}"></script>
+
+<script src="{% static 'js/unpkg.js' %}"></script>
+
+<script src="{% static 'js/myjs.js' %}"></script>
+
+</html>

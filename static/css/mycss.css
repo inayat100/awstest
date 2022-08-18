@@ -1,0 +1,38 @@
+body{
+ background-color: gainsboro;
+}
+#logo{
+ width: 225px;
+ height: 50px;
+}
+.navbar-light{
+ color: black;
+}
+.bg-my{
+ background-color: #999999;
+}
+#shop{
+ color: red;
+}
+.inav{
+ border-bottom: solid;
+}
+
+
+@media screen and (max-width: 992px) {
+.mr{
+ margin-left: -15px;
+}
+.navbar{
+ border-bottom-right-radius: 50px;
+}
+.navbar-toggler{
+ border-bottom-right-radius: 40px;
+}
+}
+@media screen and (min-width: 992px) {
+ .carousel-item img {
+   height: 40vw;
+ }
+}
+
