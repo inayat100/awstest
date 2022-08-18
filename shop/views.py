@@ -10,8 +10,8 @@ from django.views.decorators.csrf import csrf_exempt
 from decouple import config
 
 
-# client = razorpay.Client(auth=('rzp_test_7mPyjnwM8ZduxW','9AsUh5NHIv5NkkuIXZyvudLH'))
-client = razorpay.Client(auth=(config('KEY'),config('SECRET')))
+client = razorpay.Client(auth=('rzp_test_7mPyjnwM8ZduxW','9AsUh5NHIv5NkkuIXZyvudLH'))
+# client = razorpay.Client(auth=(config('KEY'),config('SECRET')))
 # @cache_page(30)
 def index(request):
     if request.user.is_authenticated:
